@@ -42,6 +42,9 @@ speech-accent-project/
 
 ## 🎯 Results
 LoRA fine-tuning demonstrates strong convergence stability and notable WER improvements across out-of-domain pronunciations while maintaining minimal memory usage and preserving the base model parameters.
-- **2. Install Dependencies**: pip install torch transformers datasets peft evaluate jiwer soundfile matplotlib
-- **3. Run Multi-Accent Training**: python train_accents.py
-- **4. Evaluate & Plot Results**: python plot_results.py
+
+---
+
+## 🔬 Key Findings & Discussion
+- **Domain Adaptation Success**: LoRA fine-tuning yielded a significant relative WER reduction on `de_de` (~11.5% absolute drop) and noticeable improvements on `en_us`.
+- **Negative Transfer Analysis (`nl_nl`)**: A slight performance degradation on Dutch (`nl_nl`, +0.81% WER) highlights the challenge of **cross-lingual LoRA interference** when fine-tuning on a mixed subset with forced English decoder prompt constraints. This serves as a strong baseline for future research into language-routed adapters (e.g., Modular Adapters / AdapterFusion).
